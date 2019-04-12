@@ -7,8 +7,10 @@
 {%- endif %}
 
 {%- if elasticsearch.major_version >= 5 and grains['os_family'] == 'Debian' %}
-apt-transport-https:
-  pkg.installed
+apt-transport-https-pkg:
+  pkg.installed:
+    - pkgs: 
+      - apt-transport-https
 {%- endif %}
 
 elasticsearch_repo:
